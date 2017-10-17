@@ -29,7 +29,7 @@ class Integrante(models.Model):
     )
 
     #Llave foranea de la cuadrilla
-    cuadrilla = models.ForeignKey('Cuadrilla', null=False, blank=True)
+    cuadrilla = models.ForeignKey('Cuadrilla', null=True)
 
 
     def __str__(self):
