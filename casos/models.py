@@ -30,9 +30,11 @@ class Caso(models.Model):
         choices=ESTADOS,
         default='1'
     )
+    #Relación uno a muchos, un caso puede tener muchas tareas
+    tareas = models.ManyToManyField('Tarea', related_query_name='tareas')
 
     def __str__(self):
-        return self.name
+        return self.nombre
 
 
 class Tarea(models.Model):
@@ -43,7 +45,7 @@ class Tarea(models.Model):
 
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45, null=False, blank=False)
-    duracion = models.TimeField(null=True)
+    duracion = models.IntegerField(null=True)
     estado = models.CharField(
         max_length=1,
         choices=ESTADOS,
@@ -51,4 +53,4 @@ class Tarea(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.nombre
