@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cuadrilla</title>
+  </head>
+  <body>
+    {% block content %}
+      {% csrf_token %}
+      {% for cuadrillas in cuadrillas %}
+          <tr>
+            <li>
+            <td>{{cuadrillas.fecha_creacion}}</td>
+            <td>
+              <a class "btn btn-primary" href="{% url 'cuadrillas:editar_cuadrilla' cuadrillas.id %}">Editar</a>
+              <a class "btn btn-primary" href="{% url 'cuadrillas:eliminar_cuadrilla' cuadrillas.id %}">Eliminar</a>
+            </td>
+            </li>
+          </tr>
+      {% endfor %}
+    {% endblock %}
+  </body>
+</html>

@@ -1,18 +1,28 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset=utf-8>
-  <title>{% block title %}
-    listado
-  {% endblock %}</title>
-</head>
-<body>
+  <head>
+    <meta charset=utf-8>
+    <title>
+      {% block title %}
+      Listado
+      {% endblock %}
+    </title>
+  </head>
+  <body>
 
-{% block content %}
-{% for caso in casos %}
-{{caso}}
-{% endfor %}
-{% endblock %}
+    {% block content %}
+      {% for casos in casos %}
+      <tr>
+        <li>
+          {{casos}}
+        <td>
+          <a class="btn btn-primary" href="{% url 'casos:editar_caso' casos.id %}">Editar</a>
+          <a class="btn btn-primary" href="{% url 'casos:eliminar_caso' casos.id %}">Eliminar</a>
+        </td>
+      </li>
+      </tr>
+      {% endfor %}
+    {% endblock %}
 
-</body>
+  </body>
 </html>

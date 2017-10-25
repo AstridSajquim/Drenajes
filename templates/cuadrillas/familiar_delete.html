@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% block content %}
+    <form method="post">
+      {% csrf_token %}
+      <h3>¿Desea eliminar el registro de {{ object.nombre }}?</h3>
+      <button class="btn btn-danger" type="submit">Sí, Eliminar</button>
+      <a class= "btn btn-default" href="{% url 'cuadrillas:lista_familiar' %}">Cancelar</a>
+    </form>
+    {% endblock %}
+
+  </body>
+</html>

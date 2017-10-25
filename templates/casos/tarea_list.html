@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tarea</title>
+  </head>
+  <body>
+    <form action="">
+    {% block content %}
+      {% csrf_token %}
+      {% for tareas in tareas %}
+          <tr>
+            <li>
+              {{tareas}}
+            <td>
+              <a class="btn btn-primary" href="{% url 'casos:editar_tarea' tareas.id %}">Editar</a>
+              <a class="btn btn-primary" href="{% url 'casos:eliminar_tarea' tareas.id %}">Eliminar</a>
+            </td>
+          </li>
+          </tr>
+      {% endfor %}
+    {% endblock %}
+    </form>
+  </body>
+</html>
