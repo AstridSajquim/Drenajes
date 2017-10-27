@@ -11,13 +11,24 @@ class Caso(models.Model):
         ('1', 'Ejecutando'),
         ('2', 'Terminado')
     )
+    TIPOS_MANTENIMIENTO = (
+        ('1', 'Preventivo'),
+        ('2', 'Correctivo')
+    )
 
     id = models.AutoField(primary_key=True)
     fecha_inicio = models.DateField(null=False, blank=False)
     fecha_final = models.DateField(null=False, blank=True)
     nombre = models.CharField(max_length=80, null=False, blank=False)
+    contacto = models.CharField(max_length=40, null=True)
+    telefono_contacto = models.CharField(max_length=8, null=True)
     # Para obtener la cadena de esta campo, se llama al
     # metodo <objeto>.get_tipo_display()
+    tipo_mentenimiento = models.CharField(
+        max_length=1,
+        choices=TIPOS_MANTENIMIENTO,
+        default='2'
+    )
     tipo = models.CharField(
         max_length=1,
         choices=TIPOS_PROYECTOS,
