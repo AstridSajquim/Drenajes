@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>integrante</title>
+  </head>
+  <body>
+    {% block content %}
+      {% csrf_token %}
+      {% for integrantes in integrantes %}
+          <tr>
+            <li>
+            <td>{{integrantes.nombre}}</td>
+            <td>{{integrantes.apellido}}</td>
+            <td>{{integrantes.fecha_nacimiento}}</td>
+            <td>{{integrantes.direccion}}</td>
+            <a class "btn btn-primary" href="{% url 'cuadrillas:editar_integrante' integrantes.id %}">Editar</a>
+            <a class "btn btn-primary" href="{% url 'cuadrillas:eliminar_integrante' integrantes.id %}">Eliminar</a>
+            </li>
+          </tr>
+      {% endfor %}
+    {% endblock %}
+  </body>
+</html>

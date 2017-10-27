@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Principal{%endblock%}</title>
+  </head>
+  <body>
+    {% block header %}
+    <h4>Titulo</h4>
+    {% endblock %}
+
+    {% block content %}
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Casos</h2>
+            <li><a href="{% url 'casos:caso_nuevo' %}">Nuevo Caso</a></li>
+            <li><a href="{% url 'casos:caso_lista' %}">Lista Caso</a></li>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Tareas</h2>
+            <li><a href="{% url 'casos:tarea_nueva' %}">Nueva Tarea</a></li>
+            <li><a href="{% url 'casos:tarea_lista' %}">Lista Tareas</a></li>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Cuadrillas</h2>
+            <li><a href="{% url 'cuadrillas:cuadrilla_nueva' %}">Nueva Cuadrilla</a></li>
+            <li><a href="{% url 'cuadrillas:lista_cuadrilla' %}">Lista Cuadrilla</a></li>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Personal</h2>
+            <li><a href="{% url 'cuadrillas:integrante_nuevo' %}">Nuevo Integrante</a></li>
+            <li><a href="{% url 'cuadrillas:lista_integrantes' %}">Lista de Integrantes</a></li>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Familiares</h2>
+            <li><a href="{% url 'cuadrillas:familiar_nuevo' %}">Nuevo Familiar</a></li>
+            <li><a href="{% url 'cuadrillas:lista_familiar' %}">Lista de Familiares</a></li>
+          </div>
+        </div>
+      </div>
+    </form>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+            <h2>Usuarios</h2>
+            <li><a href="{% url 'usuario:registrar_usuario' %}">Creacion de usuarios</a></li>
+          </div>
+        </div>
+      </div>
+     </form>
+      <form method="post">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="form-group">
+          <li>
+            <a href="{% url 'logout' %}" class="dropdown-toggle" data-toggle="dropdown" role="
+            button" aria-expanded="false">LOGOUT<span class="caret"></span>
+          </a>
+            <a class="btn btn-primary" href="{% url 'logout' %}"></a>
+          </li>
+        </div>
+       </div>
+     </div>
+    </form>
+    {% endblock %}
+
+
+  </body>
+</html>
